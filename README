@@ -1,0 +1,50 @@
+
+NEWSFETCH.SH
+08/2011 by Moritz F. Fuerst
+
+Fetches Calibre Recipes from a specified dir, turns them into Kindle-Newspapers via "ebook-convert" 
+and sends them to your kindle e-mail adress with "calibre-smtp"
+
+
+DEPENDENCIES
+
+- Calibre command line tools (You have to install them via calibre options dial.) 
+- rmtrash (install via Homebrew or get it here http://www.nightproductions.net/cli.htm, 
+  moves output to finder trash instead of removing it from the file system), 
+  (or just change to rm if you want)
+
+
+CONFIGURATION
+
+Change the following values to your own in newsfetch.sh: 
+
+RECIPES_PATH="/path/to/some/recipes"
+(this is where your recipes are stored)
+
+OUTPUT_PATH="/output/dir"
+(this is where the converted output is saved temporarily)
+
+KINDLE_ADDR="yourkindle@free.kindle.com"
+(your kindle's adress)
+
+SMTP_SERVER="smtp.mail.com"
+(your smtp server, e.g. smtp.gmail.com)
+
+SMTP_MAILADDR="name@mail.com"
+(your email adress, needs to be authorized to send stuff to your device)
+
+SMTP_USER="user"
+(your username)
+
+SMTP_PWD="pass"
+(your password)
+
+
+
+USAGE
+
+newsfetch.sh <RECIPE>
+
+Example: 'newsfetch.sh atlantic' fetches The Atlantic
+You don't need to add the '.recipe' suffix ('atlantic' instead of 'atlantic.recipe')
+You can specify multiple recipes to fetch: 'newsfetch.sh atlantic time' fetches The Atlantic and Time Magazine
