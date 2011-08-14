@@ -44,7 +44,7 @@ fi
 
 for var in "$@"
 do
-  ebook-convert "${RECIPES_PATH}/${var}.recipe" "${OUTPUT_PATH}/${var}.mobi" --output-profile kindle
+  ebook-convert "${RECIPES_PATH}/${var}.recipe" "${OUTPUT_PATH}/${var}.mobi" --output-profile=kindle
   calibre-smtp -r $SMTP_SERVER -u $SMTP_USER -p $SMTP_PWD -s "Send to Kindle" -a "${OUTPUT_PATH}/${var}.mobi" -vv $SMTP_MAILADDR $KINDLE_ADDR "Send to Kindle"
   rmtrash "${OUTPUT_PATH}/${var}.mobi" 
 done
